@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Github } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import type { ProjectData } from '../data/projects';
 
@@ -34,9 +34,26 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </h3>
           </div>
           
+          <div className="shrink-0 flex items-center gap-2">
+          {/* GitHub Icon */}
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              title="View source on GitHub"
+              aria-label={`View ${project.title} source on GitHub`}
+              className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          )}
+
           {/* Arrow Icon */}
           <div className="shrink-0 w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.08] group-hover:border-white/[0.15] transition-all duration-300">
             <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+          </div>
           </div>
         </div>
         

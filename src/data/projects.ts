@@ -15,6 +15,7 @@ export interface ProjectData {
   color: string;
   accentColor: string;
   screenshots: ProjectScreenshot[];
+  githubUrl?: string;
 }
 
 // Helper to import all images from a directory using Vite's glob import
@@ -44,6 +45,7 @@ function toScreenshots(images: Record<string, string>, category: string): Projec
 export const PROJECTS: ProjectData[] = [
   {
     id: 'clinic-appointment-system',
+    githubUrl: 'https://github.com/soriaToV2/clinic-appointment-system',
     title: 'PLP Clinic Appointment System',
     role: 'Full-Stack Developer',
     description: 'A web-based clinic management application developed for Pamantasan ng Lungsod ng Pasig (PLP). It digitizes and streamlines the process of scheduling, managing, and tracking medical appointments within the university\'s health clinic.',
@@ -72,6 +74,7 @@ Security is a core focus, featuring login attempt locking to prevent brute-force
   },
   {
     id: 'employee-management-system',
+    githubUrl: 'https://github.com/soriaToV2/employee-management-system',
     title: 'ACME Employee Management System',
     role: 'Full-Stack Developer',
     description: 'A comprehensive, web-based portal designed to streamline human resources operations and centralize the employee lifecycle with robust Role-Based Access Control (RBAC).',
@@ -102,6 +105,7 @@ Key integrations include SendGrid API for automated email notifications and Goog
   },
   {
     id: 'student-violations-module',
+    githubUrl: 'https://github.com/ChrisQuint0/ISAMS',
     title: 'ISAMS: Student Violations Module',
     role: 'Frontend/Full-Stack Developer',
     description: 'A premium, high-performance desktop application engineered for the College of Computer Studies (CCS). The Student Violations Module digitizes the disciplinary process with evidence-based compliance.',

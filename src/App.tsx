@@ -392,7 +392,7 @@ export default function App() {
               </motion.a>
               
               <div className="flex justify-center gap-8 mt-20">
-                <a href="#" className="p-4 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all hover:-translate-y-1">
+                <a href="https://github.com/soriaToV2" target="_blank" rel="noopener noreferrer" className="p-4 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all hover:-translate-y-1">
                   <Github className="w-6 h-6" />
                   <span className="sr-only">GitHub</span>
                 </a>

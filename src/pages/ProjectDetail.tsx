@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, Layers, Tag, Sparkles, Terminal } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, X, ZoomIn, Layers, Tag, Sparkles, Terminal, Github, ArrowUpRight } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getProjectById, type ProjectScreenshot } from '../data/projects';
 
@@ -188,6 +188,20 @@ export default function ProjectDetail() {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-8 leading-[1.1]">
                 {project.title}
               </h1>
+
+              {/* Source code link */}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 hover:border-white/20 transition-all"
+                >
+                  <Github className="w-5 h-5" />
+                  View Source on GitHub
+                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </a>
+              )}
             </motion.div>
 
             {/* Info Grid */}
@@ -354,7 +368,7 @@ export default function ProjectDetail() {
 
         {/* Back to Projects CTA */}
         <section className="py-16 px-6">
-          <div className="max-w-7xl mx-auto text-center">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -364,6 +378,19 @@ export default function ProjectDetail() {
               <ArrowLeft className="w-4 h-4" />
               View All Projects
             </motion.button>
+            {project.githubUrl && (
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-black font-semibold hover:bg-slate-200 transition-all"
+              >
+                <Github className="w-4 h-4" />
+                View Source on GitHub
+              </motion.a>
+            )}
           </div>
         </section>
       </main>
